@@ -7,7 +7,7 @@ defmodule Exlivery.Orders.ItemTest do
 
   describe "build/4" do
     test "when all params are valid, return an item" do
-      response = Item.build("Pizza de peperoni", :pizza, "35.5", 1)
+      response = Item.build("Pizza de peperoni", :pizza, "35.50", 1)
 
       expected_response = {:ok, build(:item)}
 
@@ -15,7 +15,7 @@ defmodule Exlivery.Orders.ItemTest do
     end
 
     test "when there is an invalid category, returns an error" do
-      response = Item.build("Pizza de peperoni", :banana, "35.5", 1)
+      response = Item.build("Pizza de peperoni", :banana, "35.50", 1)
 
       expected_response = {:error, "Invalid parameters!"}
 
@@ -31,7 +31,7 @@ defmodule Exlivery.Orders.ItemTest do
     end
 
     test "when there is an invalid quantity, returns an error" do
-      response = Item.build("Pizza de peperoni", :banana, "35.5", 0)
+      response = Item.build("Pizza de peperoni", :banana, "35.50", 0)
 
       expected_response = {:error, "Invalid parameters!"}
 
